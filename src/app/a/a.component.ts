@@ -1,4 +1,5 @@
 import { Component, OnInit, ChangeDetectionStrategy, Input } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-a',
@@ -9,7 +10,7 @@ import { Component, OnInit, ChangeDetectionStrategy, Input } from '@angular/core
 export class AComponent implements OnInit {
 
   @Input()
-  counter: any;
+  counter: Observable<{current: number}>;
 
   constructor() {
   }

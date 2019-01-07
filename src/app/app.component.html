@@ -1,5 +1,5 @@
-<app-a [counter]="counter"></app-a>
-<button (click)="increase()">Trigger Change Detection</button>
+<app-a [counter]="counterServ.obser$"></app-a>
+<button (click)="onClick()">Trigger Change Detection</button>
 <app-b [input1]="arr1"></app-b>
 
 

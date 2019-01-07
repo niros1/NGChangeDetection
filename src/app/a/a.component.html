@@ -1,5 +1,5 @@
 <h3>
   Counter:
-  <span [textContent]="counter.current"></span>
+  <span [textContent]="(counter|async)?.current"></span>
 </h3>
 
