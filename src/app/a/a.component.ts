@@ -1,22 +1,20 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, Input } from '@angular/core';
 
 @Component({
   selector: 'app-a',
   templateUrl: './a.component.html',
   styleUrls: ['./a.component.scss'],
-  // changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AComponent implements OnInit {
-  public counter: number;
+
+  @Input()
+  counter: any;
+
   constructor() {
-    this.counter = 0;
   }
 
   ngOnInit() {
-  }
-
-  increase() {
-    this.counter++;
   }
 
 }
