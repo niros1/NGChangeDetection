@@ -1,5 +1,6 @@
-import { Component, OnInit, ChangeDetectionStrategy, Input } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, Input, ChangeDetectorRef } from '@angular/core';
 import { Observable } from 'rxjs';
+import { CounterService } from '../counter.service';
 
 @Component({
   selector: 'app-a',
@@ -10,9 +11,15 @@ import { Observable } from 'rxjs';
 export class AComponent implements OnInit {
 
   @Input()
-  counter: Observable<{current: number}>;
+  counter$: Observable<{ current: number }>;
+  counter: number;
 
-  constructor() {
+  constructor(private counterServ: CounterService, private changeDetectionRef: ChangeDetectorRef) {
+    this.counterServ.obser$.subscribe
+    (counter => {
+      this.counter = counter.current;
+      // this.changeDetectionRef.markForCheck();
+    });
   }
 
   ngOnInit() {
