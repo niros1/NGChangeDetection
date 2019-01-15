@@ -4,6 +4,7 @@ import { NgModule, ApplicationRef, Injectable, ErrorHandler, NgZone } from '@ang
 import { AppComponent } from './app.component';
 import { AComponent } from './a/a.component';
 import { BComponent } from './b/b.component';
+import { SentryErrorHandler } from './sentry.service';
 
 
 
@@ -16,7 +17,7 @@ import { BComponent } from './b/b.component';
   imports: [
     BrowserModule
   ],
-  providers: [],
+  providers: [{ provide: ErrorHandler, useClass: SentryErrorHandler }],
   bootstrap: [AppComponent]
 })
 export class AppModule {
